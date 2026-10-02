@@ -1,11 +1,16 @@
 # -*- mode: python ; coding: utf-8 -*-
 
+#[ (source, destination) ]
+added_files = [
+    ('lib/cts_sat_1_telecommand_list.json', 'lib'), 
+    ('gui', 'gui')
+]
 
 a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[('lib/cts_sat_1_telecommand_list.json', '.')],
+    datas=added_files,
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},

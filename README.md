@@ -12,7 +12,14 @@ and `uv pip install -e ../CTS-SAT-1_Ground-Station`
 \
 if we end up deciding to decode CSP packets in the server then we don't have to do this but have to fiddle more in app-grc_script/main.py.
 \
-
+\
+To build the exe, edit the added_files main.spec. The second field in the tuple is how main.py should find them.
+\
+Then, run
+```
+cd app-grc_script
+pyinstaller --clean main.spec
+```
 
 # gr-opssat
 

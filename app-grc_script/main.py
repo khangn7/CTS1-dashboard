@@ -53,9 +53,12 @@ NODES = {
             "7": "EPS PDU2"
 }
 
+def resource_path(relative):
+    base = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base, relative)
 
 # gotta pull this from server but for now it is local file
-TELECOMMANDS_LIST = json.loads(Path("app-grc_script/lib/cts_sat_1_telecommand_list.json").read_text(encoding="utf-8"))
+TELECOMMANDS_LIST = json.loads(Path(resource_path("lib/cts_sat_1_telecommand_list.json")).read_text(encoding="utf-8"))
 SERVER_URL = "https://echo.free.beeceptor.com"
 
 class Main(QMainWindow):
@@ -66,7 +69,7 @@ class Main(QMainWindow):
         eventLogger.info('Starting OPS-SAT UHF Desktop')
         gui = path + '/gui/gui.ui'
         eventLogger.info('Loading GUI file {GUI}'.format(GUI=gui))
-        loadUi(gui, self)
+        loadUi(Path(resource_path(gui)), self)
 
         self.setWindowTitle('CTS1 Telemetry Desktop')
         self.resize(1000, 800)
