@@ -5,5 +5,6 @@
 ./app-grc_script/lib/*.py
 ./app-grc_script/build/
 ./app-grc_script/dist/
+./app-grc_script/recordings/
 __pycache__/
 *.pyc
